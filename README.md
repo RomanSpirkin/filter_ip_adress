@@ -1,2 +1,3 @@
-# filter_ip_adress
-filter_ip_adress
+# check_action
+Для сборки запустите следующую команду 
+mkdir build && cd build && cmake .. && cmake --build .

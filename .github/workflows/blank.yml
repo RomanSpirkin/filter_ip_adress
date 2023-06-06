@@ -15,7 +15,7 @@ jobs:
         with:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install cmake libgtest-dev
-      - run: mkdir build && cd build && cmake .. -DPATCH_VERSION=${{ github.run_number }} && cmake --build . && ./test_check_cicd
+      - run: mkdir build && cd build && cmake .. -DPATCH_VERSION=${{ github.run_number }} && cmake --build . 
       - run: cd build && cmake --build . --target package
       - name: Create Release
         id: create_release
@@ -34,8 +34,8 @@ jobs:
           GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/check_cicd-0.1.${{ github.run_number }}-Linux.deb
-          asset_name: check_cicd-0.1.${{ github.run_number }}-Linux.deb
-          asset_content_type: application/vnd.debian.binary-package 
+          asset_path: ./build/ip_filter-0.1.${{ github.run_number }}-Linux.deb
+          asset_name: ip_filter-0.1.${{ github.run_number }}-Linux.deb
+          asset_content_type: application/vnd.debian.binary-package
       
         
